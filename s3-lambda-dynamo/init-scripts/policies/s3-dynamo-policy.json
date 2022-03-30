@@ -1,0 +1,14 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "s3-dynamo-properties",
+            "Effect": "Allow",
+            "Action": [
+                "s3:PutObject",
+                "dynamodb:PutItem"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
