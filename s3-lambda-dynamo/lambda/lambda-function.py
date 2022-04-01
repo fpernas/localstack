@@ -1,8 +1,19 @@
+import json
 import boto3
 
-dynamo_client = boto3.client('dynamodb', region_name='us-east-1')
-dynamo_table = dynamo_client.Table('EXAMPLE_TABLE')
+dynamo_client = boto3.resource('dynamodb')
+dynamo_table = dynamo_client.Table('s3LambdaTest')
 
-def lambda_function(event, context):
-    print(event)
-    return True
+def lambda_handler(event, context):
+    # TODO implement
+    #print(event)
+    #print('File names: ')
+    #for record in event.get('Records', []):
+    #    print(record.get('s3').get('object').get('key'))
+    
+    response = dynamo_table.put_item(
+        Item = {
+            'document-name': event.get('Records')[0].get('s3').get('object').get('key')
+        })
+        
+    return response

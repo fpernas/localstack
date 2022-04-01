@@ -2,7 +2,8 @@ version: "3.8"
 
 services:
   localstack:
-    image: localstack/localstack
+    image: localstack/localstack:latest
+    #build: .
     environment:
       - AWS_DEFAULT_REGION=us-east-1
       - EDGE_PORT=4566
