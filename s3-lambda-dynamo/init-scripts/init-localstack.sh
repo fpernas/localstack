@@ -1,5 +1,9 @@
 #!bin/bash
 
+#echo zip python file
+
+#zip /docker-entrypoint-initaws.d/lambda/lambda-function.zip /docker-entrypoint-initaws.d/lambda/lambda-function.py
+
 #curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 #unzip awscliv2.zip
 #y|./aws/install
@@ -54,17 +58,3 @@ echo trigger elements create
 awslocal s3api put-bucket-notification-configuration \
     --bucket bucket-lambda-execution \
     --notification-configuration file:///docker-entrypoint-initaws.d/triggers/trigger-config.json
-
-#awslocal lambda create-event-source-mapping \
-#    --function-name bucket-trigger \
-#    --enabled true \
-
-
-# missing:
-# - create the bucket
-# - create the lambda
-# - create the trigger
-# - create the table
-
-awslocal s3 mb s3://test-localstack-bucket
-awslocal s3 ls
